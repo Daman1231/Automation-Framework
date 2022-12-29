@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.Assignment17.AutomationFrameworkTest.AccountLogoutTest">
+      <class name="com.Assignment17.AutomationFrameworkTest.RegisterAccountTest">
         <methods>
-          <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="verifyUserIsAbleToLogoutSuccesfully"/>
+          <include name="setUp"/>
+          <include name="verifyUserIsAbleToRegisterIntoWebsite"/>
         </methods>
-      </class> <!-- com.Assignment17.AutomationFrameworkTest.AccountLogoutTest -->
+      </class> <!-- com.Assignment17.AutomationFrameworkTest.RegisterAccountTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

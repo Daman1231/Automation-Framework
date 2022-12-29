@@ -21,9 +21,9 @@ public class AccountLogoutPage extends TestBase {
 		return accountLogOut.getText();
 	}
 
-	public YourStoreLoginPage accountLogoutContinueBtn() {
+	public YourStorePage accountLogoutContinueBtn() {
 		logoutContinueBtn.click();
-		return new YourStoreLoginPage();
+		return new YourStorePage();
 	}
 
 }

@@ -17,15 +17,15 @@ public class MyAccountInformationPage extends TestBase {
 	@FindBy(css = "input.btn")
 	WebElement continueBtn;
 
-	public void inputPhoneNumber(String number) {
+	private void inputPhoneNumber(String number) {
 		telephone.clear();
 		telephone.sendKeys(number);
 	}
 
-	public MyAccountPhoneNumberChangeSuccesfullPage clickContinueBtn(String phoneNumber) {
+	public MyAccountPage clickContinueBtn(String phoneNumber) {
 		inputPhoneNumber(phoneNumber);
 		continueBtn.click();
-		return new MyAccountPhoneNumberChangeSuccesfullPage();
+		return new MyAccountPage();
 	}
 
 }

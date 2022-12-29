@@ -31,7 +31,7 @@ public class RegisterAccountPage extends TestBase {
 	WebElement confirmPassword;
 
 	@FindBy(css = "input[type='checkbox']")
-	WebElement checkBox;
+	WebElement privacyPolicycheckBox;
 
 	@FindBy(css = "input.btn")
 	WebElement continueBtn;
@@ -60,8 +60,8 @@ public class RegisterAccountPage extends TestBase {
 		confirmPassword.sendKeys(cPassword);
 	}
 
-	private void checkBoxButton() {
-		checkBox.click();
+	private void clickPrivacyPolicy() {
+		privacyPolicycheckBox.click();
 	}
 
 	public AccountCreatedPage signUpAccount(String first, String last, String email, String mobile, String pass,
@@ -72,7 +72,7 @@ public class RegisterAccountPage extends TestBase {
 		telephone(mobile);
 		password(pass);
 		confirmPassword(confirmPass);
-		checkBox.click();
+		clickPrivacyPolicy();
 		continueBtn.submit();
 		return new AccountCreatedPage();
 

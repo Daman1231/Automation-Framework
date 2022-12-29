@@ -8,30 +8,30 @@ import org.testng.annotations.Test;
 import com.Assignment17.AutomationFramework.Base.TestBase;
 import com.AutomationFramework.Pages.AccountLoginPage;
 import com.AutomationFramework.Pages.AccountLogoutPage;
-import com.AutomationFramework.Pages.MyAccountLogoutPage;
 import com.AutomationFramework.Pages.MyAccountPage;
-import com.AutomationFramework.Pages.YourStoreLoginPage;
+import com.AutomationFramework.Pages.YourStorePage;
 
 public class AccountLogoutTest extends TestBase {
 
-	YourStoreLoginPage loginPage;
+
+
+	YourStorePage loginPage;
+	AccountLoginPage accountLogin;
+	MyAccountPage myAccount;
 
 	@BeforeMethod
 	public void setUp() {
 		launchBrowser();
-		loginPage = new YourStoreLoginPage();
-		loginPage.clickLoginBtn();
+		loginPage = new YourStorePage();
+		accountLogin = loginPage.clickLoginBtn();
+		myAccount = accountLogin.clickLoginBtn("daman@gmail.com", "Daman1231");
 	}
+	
 
 	@Test
 	public void verifyUserIsAbleToLogoutSuccesfully() {
-		MyAccountPage accountPage = new MyAccountPage();
-		AccountLoginPage accountLoginPage = loginPage.clickLoginBtn();
-		accountPage = accountLoginPage.clickLoginBtn("daman@gmail.com", "Daman1231");
-		Assert.assertEquals(accountPage.accountLoginSuccesfullPage(), "My Account", "Login Unsuccesfull...");
-		MyAccountLogoutPage accountLogoutPage = new MyAccountLogoutPage();
-		accountLogoutPage.clickLogoutLink();
-		AccountLogoutPage logoutPage = new AccountLogoutPage();
+		
+		AccountLogoutPage logoutPage =myAccount.clickLogoutLink();
 		String accountLogOutText = logoutPage.accountLogoutText();
 		Assert.assertEquals(accountLogOutText, "Account Logout", "Account Logout Unsuccesfull");
 		logoutPage.accountLogoutContinueBtn();

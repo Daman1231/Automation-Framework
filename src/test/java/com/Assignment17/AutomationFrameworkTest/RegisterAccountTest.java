@@ -7,25 +7,25 @@ import org.testng.annotations.Test;
 
 import com.Assignment17.AutomationFramework.Base.TestBase;
 import com.AutomationFramework.Pages.AccountCreatedPage;
+import com.AutomationFramework.Pages.AccountLoginPage;
 import com.AutomationFramework.Pages.RegisterAccountPage;
-import com.AutomationFramework.Pages.YourStoreSignUpPage;
+import com.AutomationFramework.Pages.YourStorePage;
 
 public class RegisterAccountTest extends TestBase {
 
-	YourStoreSignUpPage page;
+	YourStorePage yourStoreloginPage;
+	AccountLoginPage accountLoginPage;
 
 	@BeforeMethod
-	public void setup() {
+	public void setUp() {
 		launchBrowser();
+		yourStoreloginPage = new YourStorePage();
 
-		page = new YourStoreSignUpPage();
-		page.clickRegister();
 	}
 
 	@Test
 	public void verifyUserIsAbleToRegisterIntoWebsite() {
-		
-		RegisterAccountPage registerAccountPage = new RegisterAccountPage();
+		RegisterAccountPage registerAccountPage = yourStoreloginPage.clickRegisterBtn();
 		AccountCreatedPage accountCreated = registerAccountPage.signUpAccount("Daman", "Singh", "daman@gmail.com",
 				"6474020546", "Daman1231", "Daman1231");
 		Assert.assertEquals(accountCreated.accountCreatedSuccessFullPage(), "Your Account Has Been Created!",

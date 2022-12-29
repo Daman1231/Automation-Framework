@@ -6,8 +6,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.Assignment17.AutomationFramework.Base.TestBase;
 
-public class YourStoreLoginPage extends TestBase {
-	public YourStoreLoginPage() {
+public class YourStorePage extends TestBase {
+	public YourStorePage() {
 		PageFactory.initElements(driver, this);
 	}
 
@@ -17,14 +17,32 @@ public class YourStoreLoginPage extends TestBase {
 	@FindBy(xpath = "//a[text()='Login']")
 	WebElement login;
 
+	@FindBy(xpath = "//a[text()='Register']")
+	WebElement register;
+
 	public void clickMyAccount() {
 		myAccount.click();
+
+	}
+
+	private void clickLogin() {
+		login.click();
+	}
+
+	private void clickRegister() {
+		register.click();
 	}
 
 	public AccountLoginPage clickLoginBtn() {
-		myAccount.click();
-		login.click();
+		clickMyAccount();
+		clickLogin();
 		return new AccountLoginPage();
+	}
+
+	public RegisterAccountPage clickRegisterBtn() {
+		clickMyAccount();
+		clickRegister();
+		return new RegisterAccountPage();
 	}
 
 }

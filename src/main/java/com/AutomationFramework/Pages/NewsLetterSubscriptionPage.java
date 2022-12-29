@@ -17,13 +17,13 @@ public class NewsLetterSubscriptionPage extends TestBase {
 	@FindBy(css = "input.btn")
 	WebElement clickContinue;
 
-	public void newsletterSubscription() {
+	private void newsLetterSubscription() {
 		yesRadioButton.click();
 	}
 
-	public MyAccountNewLetterSubscriptionSuccessfullPage clickContinueBtn() {
-		newsletterSubscription();
+	public MyAccountPage clickContinueBtn() {
+		newsLetterSubscription();
 		clickContinue.click();
-		return new MyAccountNewLetterSubscriptionSuccessfullPage();
+		return new MyAccountPage();
 	}
 }
